@@ -1,202 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>portfolio</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
-        }
-
-        body {
-            background: #0a0a0a;
-            color: #fff;
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        /* Particle Background */
-        #particles {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-        }
-
-        /* Header Section */
-        .header {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 0 20px;
-        }
-
-        .header h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            animation: fadeInDown 1.5s ease;
-        }
-
-        .header p {
-            font-size: 1.5rem;
-            color: #00ffcc;
-            animation: fadeInUp 1.5s ease;
-        }
-
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            padding: 20px;
-            background: rgba(0, 0, 0, 0.8);
-            z-index: 10;
-        }
-
-        nav ul {
-            display: flex;
-            justify-content: center;
-            list-style: none;
-        }
-
-        nav ul li {
-            margin: 0 20px;
-        }
-
-        nav ul li a {
-            color: #fff;
-            text-decoration: none;
-            font-size: 1.2rem;
-            position: relative;
-            transition: all 0.3s ease;
-        }
-
-        nav ul li a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -5px;
-            left: 0;
-            background: #00ffcc;
-            transition: width 0.3s ease;
-        }
-
-        nav ul li a:hover::after {
-            width: 100%;
-        }
-
-        /* Sections */
-        .section {
-            padding: 80px 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section h2 {
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
-            color: #00ffcc;
-            text-align: center;
-        }
-
-        /* Project Cards */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .project-card {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 20px;
-            border-radius: 10px;
-            transition: transform 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .project-card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(0, 255, 204, 0.2), transparent);
-            transform: rotate(30deg);
-            animation: shine 3s infinite;
-        }
-
-        .project-card:hover {
-            transform: translateY(-10px);
-        }
-
-        /* Animations */
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes shine {
-            0% {
-                transform: translateX(-100%) rotate(30deg);
-            }
-            50% {
-                transform: translateX(100%) rotate(30deg);
-            }
-            100% {
-                transform: translateX(-100%) rotate(30deg);
-            }
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .header h1 {
-                font-size: 2.5rem;
-            }
-            .header p {
-                font-size: 1.2rem;
-            }
-            nav ul {
-                flex-direction: column;
-                align-items: center;
-            }
-            nav ul li {
-                margin: 10px 0;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="./css/style.css">
 </head>
+
 <body>
     <canvas id="particles"></canvas>
-    
+
     <nav>
         <ul>
             <li><a href="#home">Home</a></li>
@@ -207,44 +21,107 @@
     </nav>
 
     <section id="home" class="header">
-        <h1>John Doe</h1>
-        <p>Creative Web Developer</p>
+        <h1>Adu Yeboah Samuel</h1>
+        <p>Junior Developer</p>
     </section>
 
     <section id="about" class="section">
         <h2>About Me</h2>
-        <p>I'm a passionate web developer with 5+ years of experience creating innovative and user-friendly web solutions. Specializing in front-end development with a strong eye for design and animation.</p>
+        <p>I’m a talented full-stack engineer with an eye for creating frictionless web experiences. I primarily work
+            with JavaScript, HTML, and CSS to deliver a responsive and intuitive frontend, while more of my backend
+            capabilities are exhibited in JavaScript frameworks like Node.js and Express.js, providing downstream
+            solutions to enormous server-side applications. I also have a working knowledge on PHP, especially Laravel,
+            for building sturdy applications.</p>
     </section>
 
     <section id="projects" class="section">
         <h2>Projects</h2>
         <div class="projects-grid">
             <div class="project-card">
-                <h3>Project 1</h3>
-                <p>Modern e-commerce platform with custom animations</p>
+                <img src="https://via.placeholder.com/300x150?text=Chat+App" alt="Chat App Preview">
+                <h3>Chat App</h3>
+                <p>A real-time chat application built with Next.js, Node.js, Express.js, and MongoDB.</p>
+                <div class="tech-stack">
+                    <span>Next.js</span>
+                    <span>Node.js</span>
+                    <span>MongoDB</span>
+                </div>
+                <div class="links">
+                    <a href="https://your-live-demo-link.com" target="_blank">Live Demo</a>
+                    <a href="https://github.com/your-username/chat-app" target="_blank">GitHub</a>
+                </div>
             </div>
+
             <div class="project-card">
-                <h3>Project 2</h3>
-                <p>Interactive portfolio with particle effects</p>
+                <img src="./images/flicktime.JPG" alt="Flick Time Preview">
+                <h3>Flick Time</h3>
+                <p>A movie discovery app with interactive UI and API integration.</p>
+                <div class="tech-stack">
+                    <span>React</span>
+                    <span>API</span>
+                    <span>SCSS</span>
+                </div>
+                <div class="links">
+                    <!-- <a href="https://your-live-demo-link.com" target="_blank">Live Demo</a> -->
+                    <a href="https://github.com/adu-yeboah/FlickTime_web" target="_blank">GitHub</a>
+                </div>
             </div>
+
             <div class="project-card">
-                <h3>Project 3</h3>
-                <p>Real-time chat application</p>
+                <img src="./images/luxury_afthonia.JPG" alt="Project 3 Preview">
+                <h3>Luxury Afthonia</h3>
+                <p>A creative project showcasing unique animations and design.</p>
+                <div class="tech-stack">
+                    <span>JavaScript</span>
+                    <span>HTML</span>
+                    <span>CSS</span>
+                </div>
+                <div class="links">
+                    <a href="http://www.luxuryafthonia.com/" target="_blank">Live Demo</a>
+                    <a href="https://github.com/your-username/project-3" target="_blank">GitHub</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <img src="https://via.placeholder.com/300x150?text=Dashboard" alt="Dashboard Preview">
+                <h3>Dashboard</h3>
+                <p>A responsive admin dashboard with real-time data visualization.</p>
+                <div class="tech-stack">
+                    <span>React</span>
+                    <span>Node.js</span>
+                    <span>Chart.js</span>
+                </div>
+                <div class="links">
+                    <a href="https://your-live-demo-link.com" target="_blank">Live Demo</a>
+                    <a href="https://github.com/your-username/dashboard" target="_blank">GitHub</a>
+                </div>
             </div>
         </div>
     </section>
 
     <section id="contact" class="section">
         <h2>Contact</h2>
-        <p>Email: john.doe@example.com</p>
-        <p>Twitter: @johndoe_dev</p>
+        <div class="contact-container">
+            <div class="contact-item">
+                <a href="mailto:aduyeboah001@gmail.com">
+                    <i class="fas fa-envelope"></i>
+                    aduyeboah001@gmail.com
+                </a>
+            </div>
+            <div class="contact-item">
+                <a href="tel:+223509272549">
+                    <i class="fas fa-phone"></i>
+                    0509272549
+                </a>
+            </div>
+        </div>
     </section>
 
     <script>
         // Simple Particle Background
         const canvas = document.getElementById('particles');
         const ctx = canvas.getContext('2d');
-        
+
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
 
@@ -255,9 +132,9 @@
             constructor() {
                 this.x = Math.random() * canvas.width;
                 this.y = Math.random() * canvas.height;
-                this.size = Math.random() * 5 + 1;
-                this.speedX = Math.random() * 1 - 0.5;
-                this.speedY = Math.random() * 1 - 0.5;
+                this.size = Math.random() * 7 + 1;
+                this.speedX = Math.random() * 2;
+                this.speedY = Math.random() * 2;
             }
 
             update() {
@@ -305,4 +182,5 @@
         });
     </script>
 </body>
+
 </html>
