@@ -1,4 +1,5 @@
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css');
+
 * {
     margin: 0;
     padding: 0;
@@ -32,11 +33,20 @@ body {
 .header {
     height: 100vh;
     display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    padding: 0 40px;
+    gap: 20px;
+}
+
+.header-content {
+    flex: 1;
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    text-align: center;
-    padding: 0 20px;
 }
 
 .header h1 {
@@ -46,9 +56,31 @@ body {
 }
 
 .header p {
-    font-size: 1.5rem;
+    font-size: 3.5rem;
     color: #00ffcc;
     animation: fadeInUp 1.5s ease;
+}
+
+.header-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-image {
+    width: 350px;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 5px solid rgba(0, 255, 204, 0.3);
+    box-shadow: 0 0 20px rgba(0, 255, 204, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile-image:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(0, 255, 204, 0.4);
 }
 
 /* Navigation */
@@ -98,7 +130,12 @@ nav ul li a:hover::after {
 .section {
     padding: 80px 20px;
     max-width: 1200px;
+    min-height: 80vh;
     margin: 0 auto;
+}
+
+.about-content {
+    font-size: 1.2rem;
 }
 
 .section h2 {
@@ -125,7 +162,7 @@ nav ul li a:hover::after {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    min-height: 350px; /* Ensure consistent height */
+    min-height: 350px;
 }
 
 .project-card:hover {
@@ -203,19 +240,7 @@ nav ul li a:hover::after {
     color: #0a0a0a;
 }
 
-
-.section h2::after {
-    content: '';
-    position: absolute;
-    bottom: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 50px;
-    height: 3px;
-    background: #551E19;
-    border-radius: 2px;
-}
-
+/* Contact Section */
 .contact-container {
     max-width: 600px;
     margin: 0 auto;
@@ -254,7 +279,6 @@ nav ul li a:hover::after {
 .contact-item i {
     font-size: 1.5rem;
 }
-
 
 /* Animations */
 @keyframes fadeInDown {
@@ -296,13 +320,34 @@ nav ul li a:hover::after {
 }
 
 /* Responsive Design */
+@media (max-width: 1024px) {
+    .header {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .header-content {
+        margin-bottom: 20px;
+    }
+
+    .profile-image {
+        width: 250px;
+        height: 250px;
+    }
+}
+
 @media (max-width: 768px) {
     .header h1 {
         font-size: 2.5rem;
     }
 
     .header p {
-        font-size: 1.2rem;
+        font-size: 1.5rem;
+    }
+
+    .profile-image {
+        width: 200px;
+        height: 200px;
     }
 
     nav ul {
@@ -312,5 +357,20 @@ nav ul li a:hover::after {
 
     nav ul li {
         margin: 10px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .header h1 {
+        font-size: 2rem;
+    }
+
+    .header p {
+        font-size: 1.2rem;
+    }
+
+    .profile-image {
+        width: 150px;
+        height: 150px;
     }
 }
