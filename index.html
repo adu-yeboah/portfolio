@@ -4,66 +4,119 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>portfolio</title>
+    <title>Adu Yeboah Samuel - Portfolio</title>
     <link rel="stylesheet" href="./css/style.css">
 </head>
 
 <body>
     <canvas id="particles"></canvas>
 
+    <!-- Navigation -->
     <nav>
         <ul>
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About</a></li>
-            <li><a href="#projects">Projects</a></li>
+            <li><a href="#mobile-projects">Mobile Apps</a></li>
+            <li><a href="#web-projects">Web Apps</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
 
+    <!-- Home -->
     <section id="home" class="header">
         <div class="header-content">
             <h1>Hello, I'm Adu Yeboah Samuel</h1>
-            <p>Software Developer</p>
+            <p>React Native & Full-Stack Developer</p>
         </div>
         <div class="header-image">
             <img src="./images/image.jpg" alt="Adu Yeboah Samuel" class="profile-image">
         </div>
     </section>
 
+    <!-- About -->
     <section id="about" class="section about-section">
         <h2>About Me</h2>
         <div class="about-container">
-
             <div class="about-content">
-                <p class="bio-lead">Hi, I'm Adu Yeboah Samuel, a passionate full-stack engineer dedicated to crafting
-                    seamless web experiences.</p>
-
-                <p>I specialize in creating responsive and intuitive frontends using <strong>JavaScript</strong>,
-                    <strong>HTML</strong>, and <strong>CSS</strong>. On the backend, I leverage JavaScript frameworks
-                    like <strong>Node.js</strong> and <strong>Express.js</strong> to build robust server-side
-                    applications. Additionally, I have expertise in <strong>PHP</strong> and <strong>Laravel</strong>,
-                    enabling me to develop sturdy and scalable solutions.
-                </p>
-                <p>My goal is to deliver frictionless, user-focused applications that combine aesthetic design with
-                    powerful functionality.</p>
+                <p class="bio-lead">Hi, I'm Adu Yeboah Samuel, a passionate software developer specializing in mobile
+                    and web applications.</p>
+                <p>I craft intuitive mobile apps using <strong>React Native</strong> and build full-stack web solutions
+                    with <strong>React.js</strong>, <strong>Laravel</strong>, and <strong>Node.js</strong>. My focus is
+                    on blending usability with performance to create impactful digital products.</p>
                 <div class="skills-highlight">
+                    <span class="skill">React Native</span>
+                    <span class="skill">Expo</span>
                     <span class="skill">JavaScript</span>
                     <span class="skill">Node.js</span>
                     <span class="skill">Laravel</span>
-                    <span class="skill">React</span>
                     <span class="skill">MongoDB</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="projects" class="section">
-        <h2>Projects</h2>
+    <!-- Mobile Projects -->
+    <section id="mobile-projects" class="section">
+        <h2>📱 Mobile Applications</h2>
         <div class="projects-grid">
+
+            <!-- SignEase -->
+            <div class="project-card">
+                <img src="./images/signease.jpg" alt="SignEase Preview">
+                <h3>SignEase</h3>
+                <p>An educational app to learn Ghanaian Sign Language with videos, quizzes, and progress tracking.</p>
+                <div class="tech-stack">
+                    <span>React Native</span>
+                    <span>Expo</span>
+                </div>
+                <div class="links">
+                    <!-- <a href="./images/signease_preview.jpg" target="_blank">Preview</a> -->
+                    <a href="https://drive.google.com/your-signease-apk-link" target="_blank">Download APK</a>
+                </div>
+            </div>
+
+            <!-- Notora -->
+            <div class="project-card">
+                <img src="./images/notora.jpg" alt="Notora Preview">
+                <h3>Notora</h3>
+                <p>A note-taking app with folder management, audio recording, and upcoming transcription features.</p>
+                <div class="tech-stack">
+                    <span>React Native</span>
+                    <span>Expo</span>
+                </div>
+                <div class="links">
+                    <!-- <a href="./images/notora_preview.jpg" target="_blank">Preview</a> -->
+                    <a href="https://drive.google.com/your-notora-apk-link" target="_blank">Download APK</a>
+                </div>
+            </div>
+
+            <!-- Quick Scan -->
+            <div class="project-card">
+                <img src="./images/quickscan.jpg" alt="Quick Scan Preview">
+                <h3>Quick Scan</h3>
+                <p>A QR code scanning and generation app for everyday use.</p>
+                <div class="tech-stack">
+                    <span>React Native</span>
+                    <span>Expo</span>
+                </div>
+                <div class="links">
+                    <!-- <a href="./images/quickscan_preview.jpg" target="_blank">Preview</a> -->
+                    <a href="https://drive.google.com/your-quickscan-apk-link" target="_blank">Download APK</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Web Projects -->
+    <section id="web-projects" class="section">
+        <h2>💻 Web Applications</h2>
+        <div class="projects-grid">
+            <!-- Chat App -->
             <div class="project-card">
                 <img src="./images/chat.JPG" alt="Chat App Preview">
                 <h3>Chat App</h3>
-                <p>A real-time chat application built with Next.js, Node.js, Express.js, and MongoDB.</p>
+                <p>Real-time chat application with WebSockets.</p>
                 <div class="tech-stack">
                     <span>Next.js</span>
                     <span>Node.js</span>
@@ -75,39 +128,56 @@
                 </div>
             </div>
 
+            <!-- Wisconstructures -->
             <div class="project-card">
-                <img src="./images/wiscon.JPG" alt="Flick Time Preview">
-                <h3>Wisconstuctures</h3>
-                <p>A Real Estate Website</p>
+                <img src="./images/wiscon.JPG" alt="Wisconstructures Preview">
+                <h3>Wisconstructures</h3>
+                <p>A responsive real estate platform with admin dashboard.</p>
                 <div class="tech-stack">
-                    <span>Next Js</span>
-                    <span>Node JS</span>
-                    <span>Express JS</span>
-                    <span>MongoDB</span>
+                    <span>React</span>
+                    <span>Laravel</span>
+                    <span>MySQL</span>
                 </div>
                 <div class="links">
                     <a href="https://github.com/adu-yeboah/Winconstructures" target="_blank">GitHub</a>
                 </div>
             </div>
 
+            <!-- school Landing page -->
+            <div class="project-card">
+                <img src="./images/school_landpage.JPG" alt="School Landing Page Preview">
+                <h3>Chat App</h3>
+                <p>A Simple Landing Page for a School.</p>
+                <div class="tech-stack">
+                    <span>Next.js</span>
+                    <span>Tailwind CSS</span>
+                </div>
+                <div class="links">
+                    <a href="https://school-5hjv.vercel.app/" target="_blank">Live Demo</a>
+                </div>
+            </div>
+
+
+            <!-- Flick Time -->
             <div class="project-card">
                 <img src="./images/flicktime.JPG" alt="Flick Time Preview">
                 <h3>Flick Time</h3>
-                <p>A movie discovery app with interactive UI and API integration.</p>
+                <p>A movie discovery app with API integration.</p>
                 <div class="tech-stack">
                     <span>React</span>
-                    <span>API</span>
                     <span>SCSS</span>
+                    <span>API</span>
                 </div>
                 <div class="links">
                     <a href="https://github.com/adu-yeboah/FlickTime_web" target="_blank">GitHub</a>
                 </div>
             </div>
 
+            <!-- Luxury Afthonia -->
             <div class="project-card">
-                <img src="./images/luxury_afthonia.JPG" alt="Project 3 Preview">
+                <img src="./images/luxury_afthonia.JPG" alt="Luxury Afthonia Preview">
                 <h3>Luxury Afthonia</h3>
-                <p>A creative project showcasing unique animations and design.</p>
+                <p>A creative project showcasing animations and design.</p>
                 <div class="tech-stack">
                     <span>JavaScript</span>
                     <span>HTML</span>
@@ -115,18 +185,18 @@
                 </div>
                 <div class="links">
                     <a href="http://www.luxuryafthonia.com/" target="_blank">Live Demo</a>
-                    <a href="https://github.com/your-username/project-3" target="_blank">GitHub</a>
                 </div>
             </div>
 
+            <!-- Blog App -->
             <div class="project-card">
-                <img src="./images/blog.JPG" alt="Project 3 Preview">
+                <img src="./images/blog.JPG" alt="Blog App Preview">
                 <h3>Blog App</h3>
-                <p>A Blog application for Ghanaian Tours.</p>
+                <p>A blog platform for Ghanaian tours.</p>
                 <div class="tech-stack">
-                    <span>JavaScript</span>
-                    <span>Inertia</span>
                     <span>Laravel</span>
+                    <span>Inertia.js</span>
+                    <span>React</span>
                 </div>
                 <div class="links">
                     <a href="https://github.com/adu-yeboah/blog_app" target="_blank">GitHub</a>
@@ -135,6 +205,7 @@
         </div>
     </section>
 
+    <!-- Contact -->
     <section id="contact" class="section">
         <h2>Contact</h2>
         <div class="contact-container">
@@ -145,7 +216,7 @@
                 </a>
             </div>
             <div class="contact-item">
-                <a href="tel:+223509272549">
+                <a href="tel:+233509272549">
                     <i class="fas fa-phone"></i>
                     0509272549
                 </a>
@@ -159,11 +230,10 @@
         </div>
     </section>
 
+    <!-- Background Animation -->
     <script>
-        // Simple Particle Background
         const canvas = document.getElementById('particles');
         const ctx = canvas.getContext('2d');
-
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
 
@@ -178,14 +248,11 @@
                 this.speedX = Math.random() * 2;
                 this.speedY = Math.random() * 2;
             }
-
             update() {
                 this.x += this.speedX;
                 this.y += this.speedY;
-
                 if (this.size > 0.2) this.size -= 0.1;
             }
-
             draw() {
                 ctx.fillStyle = 'rgba(0, 255, 204, 0.8)';
                 ctx.beginPath();
@@ -199,13 +266,11 @@
                 particlesArray.push(new Particle());
             }
         }
-
         function animate() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             for (let i = 0; i < particlesArray.length; i++) {
                 particlesArray[i].update();
                 particlesArray[i].draw();
-
                 if (particlesArray[i].size <= 0.2) {
                     particlesArray.splice(i, 1);
                     i--;
