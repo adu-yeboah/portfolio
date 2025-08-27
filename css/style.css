@@ -137,6 +137,13 @@ nav ul li a:hover::after {
 
 .about-content {
     font-size: 1.2rem;
+    text-align: center;
+}
+
+.about-content .skill{
+    font-size: 1.2rem;
+    color: #00ffcc;
+    font-style: italic;
 }
 
 .section h2 {
