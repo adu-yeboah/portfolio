@@ -133,7 +133,7 @@ export default function Home() {
               <div className="relative w-64 h-64 md:w-80 md:h-80">
                 <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full blur-3xl opacity-20 animate-pulse" />
                 <Image
-                  src="/images/image.jpg"
+                  src="/images/profile.jpeg"
                   alt="Adu Yeboah Samuel"
                   fill
                   className="rounded-full object-cover border-4 border-gray-800 relative z-10"
