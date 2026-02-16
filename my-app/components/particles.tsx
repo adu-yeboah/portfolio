@@ -12,37 +12,46 @@ const Particles = () => {
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    const resizeCanvas = () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    };
+
+    resizeCanvas();
 
     const particlesArray: Particle[] = [];
-    const numberOfParticles = 100;
+    const numberOfParticles = 80;
 
-    // eslint-disable-next-line react-hooks/unsupported-syntax
     class Particle {
       x: number;
       y: number;
       size: number;
       speedX: number;
       speedY: number;
+      opacity: number;
 
       constructor() {
-        this.x = Math.random() * (canvas?.width || 0);
-        this.y = Math.random() * (canvas?.height || 0);
-        this.size = Math.random() * 7 + 1;
-        this.speedX = Math.random() * 2;
-        this.speedY = Math.random() * 2;
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.size = Math.random() * 1.5 + 0.5;
+        this.speedX = (Math.random() - 0.5) * 0.5;
+        this.speedY = (Math.random() - 0.5) * 0.5;
+        this.opacity = Math.random() * 0.5 + 0.1;
       }
 
       update() {
         this.x += this.speedX;
         this.y += this.speedY;
-        if (this.size > 0.2) this.size -= 0.1;
+
+        if (this.x > canvas.width) this.x = 0;
+        if (this.x < 0) this.x = canvas.width;
+        if (this.y > canvas.height) this.y = 0;
+        if (this.y < 0) this.y = canvas.height;
       }
 
       draw() {
         if (!ctx) return;
-        ctx.fillStyle = 'rgba(0, 255, 204, 0.8)';
+        ctx.fillStyle = `rgba(34, 211, 238, ${this.opacity})`;
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
         ctx.fill();
@@ -50,40 +59,38 @@ const Particles = () => {
     }
 
     function init() {
+      particlesArray.length = 0;
       for (let i = 0; i < numberOfParticles; i++) {
         particlesArray.push(new Particle());
       }
     }
 
+    let animationFrameId: number;
+
     function animate() {
-      if (!ctx) return;
-      ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
-      
+      if (!ctx || !canvas) return;
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
       for (let i = 0; i < particlesArray.length; i++) {
         particlesArray[i].update();
         particlesArray[i].draw();
-        
-        if (particlesArray[i].size <= 0.2) {
-          particlesArray.splice(i, 1);
-          i--;
-          particlesArray.push(new Particle());
-        }
       }
-      
-      requestAnimationFrame(animate);
+
+      animationFrameId = requestAnimationFrame(animate);
     }
 
     init();
     animate();
 
     const handleResize = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
+      resizeCanvas();
+      init();
     };
 
     window.addEventListener('resize', handleResize);
-    
+
     return () => {
+      cancelAnimationFrame(animationFrameId);
       window.removeEventListener('resize', handleResize);
     };
   }, []);
@@ -91,7 +98,7 @@ const Particles = () => {
   return (
     <canvas
       ref={canvasRef}
-      className="fixed top-0 left-0 w-full h-full -z-10"
+      className="fixed top-0 left-0 w-full h-full -z-10 bg-[#000000]"
     />
   );
 };
