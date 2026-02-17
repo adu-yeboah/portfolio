@@ -49,16 +49,16 @@ const Particles = () => {
       speedY: number;
       opacity: number;
 
-      constructor() {
-        this.x = Math.random() * canvas.width;
-        this.y = Math.random() * canvas.height;
+      constructor(canvasWidth: number, canvasHeight: number) {
+        this.x = Math.random() * canvasWidth;
+        this.y = Math.random() * canvasHeight;
         this.size = Math.random() * 2 + 0.5;
         this.speedX = (Math.random() - 0.5) * 0.4;
         this.speedY = (Math.random() - 0.5) * 0.4;
         this.opacity = Math.random() * 0.6 + 0.2;
       }
 
-      update() {
+      update(canvasWidth: number, canvasHeight: number) {
         this.x += this.speedX;
         this.y += this.speedY;
 
@@ -81,10 +81,10 @@ const Particles = () => {
         }
 
         // Wrap around screen
-        if (this.x > canvas.width) this.x = 0;
-        if (this.x < 0) this.x = canvas.width;
-        if (this.y > canvas.height) this.y = 0;
-        if (this.y < 0) this.y = canvas.height;
+        if (this.x > canvasWidth) this.x = 0;
+        if (this.x < 0) this.x = canvasWidth;
+        if (this.y > canvasHeight) this.y = 0;
+        if (this.y < 0) this.y = canvasHeight;
 
         // Limit speed
         const maxSpeed = 2;
@@ -92,19 +92,18 @@ const Particles = () => {
         this.speedY = Math.max(-maxSpeed, Math.min(maxSpeed, this.speedY));
       }
 
-      draw() {
-        if (!ctx) return;
-        ctx.fillStyle = `rgba(34, 211, 238, ${this.opacity})`;
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fill();
+      draw(context: CanvasRenderingContext2D) {
+        context.fillStyle = `rgba(34, 211, 238, ${this.opacity})`;
+        context.beginPath();
+        context.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        context.fill();
       }
     }
 
     function init() {
       particlesArray.length = 0;
       for (let i = 0; i < numberOfParticles; i++) {
-        particlesArray.push(new Particle());
+        particlesArray.push(new Particle(canvas!.width, canvas!.height));
       }
     }
 
@@ -117,12 +116,12 @@ const Particles = () => {
 
           if (distance < connectionDistance) {
             const opacity = (1 - distance / connectionDistance) * 0.2;
-            ctx.strokeStyle = `rgba(34, 211, 238, ${opacity})`;
-            ctx.lineWidth = 1;
-            ctx.beginPath();
-            ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
-            ctx.lineTo(particlesArray[b].x, particlesArray[b].y);
-            ctx.stroke();
+            ctx!.strokeStyle = `rgba(34, 211, 238, ${opacity})`;
+            ctx!.lineWidth = 1;
+            ctx!.beginPath();
+            ctx!.moveTo(particlesArray[a].x, particlesArray[a].y);
+            ctx!.lineTo(particlesArray[b].x, particlesArray[b].y);
+            ctx!.stroke();
           }
         }
       }
@@ -131,12 +130,11 @@ const Particles = () => {
     let animationFrameId: number;
 
     function animate() {
-      if (!ctx || !canvas) return;
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx!.clearRect(0, 0, canvas!.width, canvas!.height);
 
       for (let i = 0; i < particlesArray.length; i++) {
-        particlesArray[i].update();
-        particlesArray[i].draw();
+        particlesArray[i].update(canvas!.width, canvas!.height);
+        particlesArray[i].draw(ctx!);
       }
 
       connect();
@@ -146,17 +144,18 @@ const Particles = () => {
     init();
     animate();
 
-    window.addEventListener('resize', () => {
+    const handleResize = () => {
       resizeCanvas();
       init();
-    });
+    };
 
+    window.addEventListener('resize', handleResize);
     window.addEventListener('mousemove', handleMouseMove);
     window.addEventListener('mouseleave', handleMouseLeave);
 
     return () => {
       cancelAnimationFrame(animationFrameId);
-      window.removeEventListener('resize', resizeCanvas);
+      window.removeEventListener('resize', handleResize);
       window.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('mouseleave', handleMouseLeave);
     };
