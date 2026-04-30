@@ -125,7 +125,8 @@ export const mobileProjects = [
 export const webProjects = [
   {
     title: "Invoice Pay",
-    description: "An application to help creatives and freelancers manage their invoicing.",
+    description:
+      "An application to help creatives and freelancers manage their invoicing.",
     imageSrc: "/images/invoicepay.png",
     techStack: ["Next.js", "Laravel", "PayStack", "MySQL"],
     links: {
@@ -134,28 +135,44 @@ export const webProjects = [
     },
     highlight: "Fintech",
   },
- {
-    title: 'Chat App',
-    description: 'Real-time chat application with WebSockets and end-to-end encryption concepts.',
-    imageSrc: '/images/chat.JPG',
-    techStack: ['Next.js', 'Node.js', 'Socket.io', 'MongoDB'],
-    links: {
-      demo: 'https://chat-eta-opal.vercel.app/',
-      github: 'https://github.com/adu-yeboah/chat',
-    },
-    highlight: 'Real-time'
-  },
   {
     title: "Wisconstructures",
     description:
       "A responsive real estate platform with a heavy-duty admin dashboard.",
-    imageSrc: "/images/wiscon.JPG",
-    techStack: ["React", "Laravel", "MySQL", "Redux"],
+    imageSrc: "/images/estate.png",
+    techStack: ["Next.js", "Node.js", "Redux"],
     links: {
+      demo: "https://winconstructures.vercel.app/",
       github: "https://github.com/adu-yeboah/Winconstructures",
+
     },
     highlight: "Real Estate",
   },
+  {
+    title: "Chat App",
+    description:
+      "Real-time chat application with WebSockets and end-to-end encryption concepts.",
+    imageSrc: "/images/chat.JPG",
+    techStack: ["Next.js", "Node.js", "Socket.io", "MongoDB"],
+    links: {
+      demo: "https://chat-eta-opal.vercel.app/",
+      github: "https://github.com/adu-yeboah/chat",
+    },
+    highlight: "Real-time",
+  },
+  {
+    title: "Istem Academy",
+    description:
+      "A school Platform for managemnt and announcement of school activities",
+    imageSrc: "/images/school.png",
+    techStack: ["React.js", "Laravel", "Inertia.js"],
+    links: {
+      demo: "https://www.isteamacademi.com//",
+      // github: 'https://github.com/adu-yeboah/chat',
+    },
+    highlight: "Real-time",
+  },
+
   {
     title: "Flick Time",
     description:
