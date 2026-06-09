@@ -25,7 +25,6 @@ const Hero = () => {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75" />
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-500" />
               </span>
-              <span>Available for new opportunities</span>
             </motion.div>
 
             <div className="space-y-6">
@@ -58,7 +57,7 @@ const Hero = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
               >
-                Adu Yeboah Samuel — Crafting high-performance mobile and web experiences
+                Adu Yeboah Samuel  Crafting high-performance mobile and web experiences
                 with modern architectural patterns and elegant code.
               </motion.p>
             </div>

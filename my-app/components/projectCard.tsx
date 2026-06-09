@@ -1,10 +1,12 @@
 "use client";
 
-import { ExternalLink, Github, Download, ArrowUpRight } from 'lucide-react';
+import { ExternalLink, Github, Download, ArrowUpRight, FileText } from 'lucide-react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 
 interface ProjectCardProps {
+  slug?: string;
   title: string;
   description: string;
   imageSrc: string;
@@ -18,10 +20,10 @@ interface ProjectCardProps {
   highlight?: string;
 }
 
-const ProjectCard = ({ title, description, imageSrc, techStack, links, highlight }: ProjectCardProps) => {
+const ProjectCard = ({ slug, title, description, imageSrc, techStack, links, highlight }: ProjectCardProps) => {
   return (
     <motion.div
-      className="group relative bg-gradient-to-br from-gray-900/50 to-gray-900/20 border border-gray-800/50 rounded-3xl overflow-hidden hover:border-cyan-500/50 transition-all duration-500"
+      className="group relative bg-gradient-to-br from-gray-900/50 to-gray-900/20 border border-gray-800/50 rounded-3xl overflow-hidden hover:border-cyan-500/50 transition-all duration-500 flex flex-col"
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
@@ -29,15 +31,15 @@ const ProjectCard = ({ title, description, imageSrc, techStack, links, highlight
       transition={{ type: "spring", stiffness: 300, damping: 20 }}
     >
       {/* Image Section */}
-      <div className="relative h-64 overflow-hidden">
+      <div className="relative w-full aspect-video overflow-hidden bg-gray-950/50">
         <Image
           src={imageSrc}
           alt={`${title} Preview`}
           fill
-          className="object-cover transition-transform duration-700 group-hover:scale-110"
+          className="object-contain transition-transform duration-700 group-hover:scale-105"
         />
         {/* Gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/50 to-transparent opacity-80" />
+        <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40 to-transparent opacity-80" />
 
         {highlight && (
           <motion.div
@@ -52,19 +54,31 @@ const ProjectCard = ({ title, description, imageSrc, techStack, links, highlight
         )}
 
         {/* Hover overlay with links */}
-        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 bg-black/60 backdrop-blur-sm">
+        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 bg-black/60 backdrop-blur-sm z-20">
           <motion.div
             className="flex gap-4"
             initial={{ scale: 0.8, opacity: 0 }}
             whileInView={{ scale: 1, opacity: 1 }}
             transition={{ delay: 0.1 }}
           >
+            {slug && (
+              <Link href={`/projects/${slug}`}>
+                <motion.div
+                  className="p-4 bg-cyan-500 text-white rounded-full hover:bg-cyan-400 transition-colors shadow-lg"
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.95 }}
+                  aria-label="View Project Details"
+                >
+                  <FileText size={20} />
+                </motion.div>
+              </Link>
+            )}
             {links.github && (
               <motion.a
                 href={links.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-4 bg-white text-black rounded-full hover:bg-cyan-400 transition-colors shadow-lg"
+                className="p-4 bg-white text-black rounded-full hover:bg-gray-200 transition-colors shadow-lg"
                 whileHover={{ scale: 1.1, rotate: 5 }}
                 whileTap={{ scale: 0.95 }}
                 aria-label="View GitHub repository"
@@ -77,7 +91,7 @@ const ProjectCard = ({ title, description, imageSrc, techStack, links, highlight
                 href={links.demo || links.preview}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-4 bg-white text-black rounded-full hover:bg-cyan-400 transition-colors shadow-lg"
+                className="p-4 bg-white text-black rounded-full hover:bg-gray-200 transition-colors shadow-lg"
                 whileHover={{ scale: 1.1, rotate: -5 }}
                 whileTap={{ scale: 0.95 }}
                 aria-label="View live demo"
@@ -90,7 +104,7 @@ const ProjectCard = ({ title, description, imageSrc, techStack, links, highlight
                 href={links.download}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-4 bg-white text-black rounded-full hover:bg-cyan-400 transition-colors shadow-lg"
+                className="p-4 bg-white text-black rounded-full hover:bg-gray-200 transition-colors shadow-lg"
                 whileHover={{ scale: 1.1, rotate: 5 }}
                 whileTap={{ scale: 0.95 }}
                 aria-label="Download app"
@@ -103,21 +117,31 @@ const ProjectCard = ({ title, description, imageSrc, techStack, links, highlight
       </div>
 
       {/* Content Section */}
-      <div className="p-6 relative z-10">
+      <div className="p-6 relative z-10 flex flex-col flex-1">
         <div className="flex justify-between items-start mb-4">
-          <h3 className="text-xl font-bold text-white group-hover:text-cyan-400 transition-colors">{title}</h3>
-          <motion.div
-            className="p-2 bg-gray-800/50 rounded-lg group-hover:bg-cyan-500/20 transition-colors"
-            whileHover={{ rotate: 45, scale: 1.1 }}
-            transition={{ type: "spring", stiffness: 300 }}
-          >
-            <ArrowUpRight className="text-gray-500 group-hover:text-cyan-400 transition-colors" size={18} />
-          </motion.div>
+          {slug ? (
+            <Link href={`/projects/${slug}`} className="hover:text-cyan-400 transition-colors">
+              <h3 className="text-xl font-bold text-white transition-colors">{title}</h3>
+            </Link>
+          ) : (
+            <h3 className="text-xl font-bold text-white">{title}</h3>
+          )}
+          {slug && (
+            <Link href={`/projects/${slug}`}>
+              <motion.div
+                className="p-2 bg-gray-800/50 rounded-lg hover:bg-cyan-500/20 transition-colors cursor-pointer"
+                whileHover={{ rotate: 45, scale: 1.1 }}
+                transition={{ type: "spring", stiffness: 300 }}
+              >
+                <ArrowUpRight className="text-gray-500 hover:text-cyan-400 transition-colors" size={18} />
+              </motion.div>
+            </Link>
+          )}
         </div>
 
-        <p className="text-gray-400 text-sm mb-6 line-clamp-2 leading-relaxed">{description}</p>
+        <p className="text-gray-400 text-sm mb-6 line-clamp-2 leading-relaxed flex-1">{description}</p>
 
-        <div className="flex flex-wrap gap-2">
+        <div className="flex flex-wrap gap-2 mt-auto">
           {techStack.map((tech, index) => (
             <motion.span
               key={tech}
