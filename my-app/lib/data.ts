@@ -155,6 +155,23 @@ export const mobileProjects: Projects[] = [
 
 export const webProjects: Projects[]  = [
   {
+    slug: "InStuddy",
+    title: "InStuddy",
+    description:
+      "A study aid application for students to manage their coursework and resources.",
+    imageSrc: "/images/instuddy.png",
+    gallery: [
+      "/images/instuddy.png"
+    ],
+    content: "## Overview\nInStuddy is designed to help students organize their study materials and manage their coursework effectively. It provides a centralized platform for accessing notes, assignments, and other educational resources.\n\n## Technical Details\nBuilt with Next.js for a blazing fast frontend and Laravel for a robust backend, connected to a MySQL database.",
+    techStack: ["Next.js", "Node JS", "PayStack", "PostgreSQL"],
+    links: {
+      demo: "https://www.instuddy.com/",
+      // github: "https://github.com/adu-yeboah/invoicepay",
+    },
+    highlight: "Education",
+  },
+  {
     slug: "invoice-pay",
     title: "Invoice Pay",
     description:
