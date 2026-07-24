@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from 'framer-motion';
-import { ArrowRight, Sparkles, Smartphone, Code2, Target, Zap } from 'lucide-react';
+import { ArrowRight, Sparkles, Smartphone, Code2, Target, Zap, Download } from 'lucide-react';
 import Image from 'next/image';
 
 const Hero = () => {
@@ -25,6 +25,7 @@ const Hero = () => {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75" />
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-500" />
               </span>
+              <span>Open to Opportunities</span>
             </motion.div>
 
             <div className="space-y-6">
@@ -38,7 +39,7 @@ const Hero = () => {
                 <br />
                 <span className="relative inline-block">
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500">
-                    DEVELOPER
+                    ENGINEER
                   </span>
                   <svg className="absolute -bottom-2 left-0 w-full" height="8" viewBox="0 0 300 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M1 5.5C50 2.5 150 0.5 299 5.5" stroke="url(#gradient)" strokeWidth="3" strokeLinecap="round"/>
@@ -57,8 +58,8 @@ const Hero = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
               >
-                Adu Yeboah Samuel  Crafting high-performance mobile and web experiences
-                with modern architectural patterns and elegant code.
+                Adu Yeboah Samuel — Shipping production mobile apps to the App Store &amp; Google Play, and building
+                and building scalable web applications with React, Next.js, and Laravel.
               </motion.p>
             </div>
 
@@ -77,6 +78,16 @@ const Hero = () => {
                 <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </a>
               <a
+              <a
+                href="/resume.pdf"
+                download
+                className="px-8 py-4 border-2 border-gray-800 rounded-full font-bold hover:border-cyan-500 hover:bg-cyan-500/10 transition-all duration-300 text-gray-400 hover:text-white group"
+              >
+                <span className="flex items-center gap-2">
+                  <Download size={16} />
+                  Resume
+                </span>
+              </a>
                 href="#contact"
                 className="px-8 py-4 border-2 border-gray-800 rounded-full font-bold hover:border-cyan-500 hover:bg-cyan-500/10 transition-all duration-300 text-gray-400 hover:text-white group"
               >
@@ -99,7 +110,7 @@ const Hero = () => {
                   <Target size={18} className="text-cyan-400" />
                 </div>
                 <div>
-                  <p className="text-2xl font-bold">10+</p>
+                  <p className="text-2xl font-bold">20+</p>
                   <p className="text-xs text-gray-500 uppercase tracking-wider">Projects</p>
                 </div>
               </div>
@@ -111,6 +122,16 @@ const Hero = () => {
                 <div>
                   <p className="text-2xl font-bold">3+</p>
                   <p className="text-xs text-gray-500 uppercase tracking-wider">Years Exp</p>
+                </div>
+              </div>
+              <div className="w-px h-12 bg-gray-800" />
+              <div className="flex items-center gap-2">
+                <div className="p-2 bg-gradient-to-br from-green-500/20 to-emerald-500/20 rounded-lg">
+                  <Smartphone size={18} className="text-green-400" />
+                </div>
+                <div>
+                  <p className="text-2xl font-bold">4+</p>
+                  <p className="text-xs text-gray-500 uppercase tracking-wider">Store Apps</p>
                 </div>
               </div>
             </motion.div>

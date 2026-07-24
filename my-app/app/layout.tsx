@@ -5,12 +5,12 @@ import './globals.css';
 const outfit = Outfit({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Adu Yeboah Samuel | Full Stack Developer',
-  description: 'Senior Software Developer specializing in React Native, Laravel, and Next.js. Architecting high-performance digital solutions.',
+  title: 'Adu Yeboah Samuel | Full Stack Engineer',
+  description: 'Full Stack Engineer with 3+ years shipping production mobile apps (App Store & Google Play) and high-performance web applications with React, Next.js, and Laravel.',
   keywords: ['Software Developer', 'React Native', 'Laravel', 'Next.js', 'Ghana Developer', 'Full Stack Developer', 'Adu Yeboah Samuel'],
   authors: [{ name: 'Adu Yeboah Samuel' }],
   openGraph: {
-    title: 'Adu Yeboah Samuel | Full Stack Developer',
+    title: 'Adu Yeboah Samuel | Full Stack Engineer',
     description: 'Architecting high-performance mobile and web solutions.',
     url: 'https://aduyeboah.com',
     siteName: 'Adu Yeboah Samuel Portfolio',
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Adu Yeboah Samuel | Full Stack Developer',
+    title: 'Adu Yeboah Samuel | Full Stack Engineer',
     description: 'Architecting high-performance mobile and web solutions.',
     images: ['/images/profile.jpeg'],
   },

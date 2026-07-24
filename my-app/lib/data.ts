@@ -1,15 +1,14 @@
 import {
   Code2,
   Smartphone,
-  Globe,
   Database,
-  Cpu,
   Layout,
   Github,
   Mail,
-  Phone,
   Linkedin,
-  Twitter,
+
+
+  CloudUpload,
 } from "lucide-react";
 
 export const navigationItems = [
@@ -25,7 +24,13 @@ export const skills = [
   {
     category: "Mobile Development",
     icon: Smartphone,
-    items: ["React Native", "Flutter", "Expo", "Mobile UI/UX"],
+    items: [
+      "React Native",
+      "Expo",
+      "Expo Router",
+      "Reanimated",
+      "Gesture Handler",
+    ],
     color: "text-blue-400",
   },
   {
@@ -41,33 +46,72 @@ export const skills = [
     color: "text-cyan-400",
   },
   {
-    category: "Backend Development",
+    category: "Backend & APIs",
     icon: Database,
-    items: ["Node.js", "Laravel", "Express", "MySQL", "MongoDB", "PostgreSQL"],
+    items: [
+      "Node.js",
+      "Laravel",
+      "Express",
+      "REST APIs",
+      "WebSockets",
+      "MySQL",
+    ],
     color: "text-emerald-400",
   },
   {
-    category: "Languages & Tools",
-    icon: Code2,
-    items: ["JavaScript", "PHP", "Python", "Git", "Docker", "AWS", "Azure"],
+    category: "Release & SDKs",
+    icon: CloudUpload,
+    items: [
+      "EAS Build/Submit",
+      "Stripe",
+      "PayStack",
+      "Google OAuth",
+      "JWT Auth",
+      "Sentry",
+    ],
     color: "text-purple-400",
   },
 ];
 
 export const experiences = [
   {
-    company: "Freelance Software Developer",
+    company: "Cognize Corporation",
     role: "Full Stack Developer",
-    period: "2022 - Present",
+    period: "Sep 2025 – Present",
     description:
-      "Developing high-quality mobile and web applications for various clients across different industries.",
+      "Lead development across mobile (React Native/Expo) and web (React.js/Next.js) for two production educational platforms — shipping updates to both the App Store and Google Play.",
     achievements: [
-      "Built and launched multiple mobile apps on Play Store.",
-      "Developed custom CMS solutions based on Laravel and React.",
-      "Optimized application performance reducing load times by 40%.",
+      "Built subscription systems combining Stripe (Android) and iOS In-App Purchases across both apps.",
+      "Implemented OTP verification, role-based access control, and secure token management.",
+      "Built interactive features: animated lesson flows, quizzes with real-time feedback, and Chart.js visualizations.",
+      "Developed web admin dashboard for content management, user analytics, and platform configuration.",
     ],
   },
-  // Add more experiences here as needed
+  {
+    company: "Freelance — Multiple Clients",
+    role: "Full Stack Developer",
+    period: "2022 – Present",
+    description:
+      "Architected and delivered production mobile and web applications across fintech, e-commerce, and real estate industries.",
+    achievements: [
+      "Shipped multiple React Native/Expo apps to the Apple App Store and Google Play.",
+      "Built responsive multi-role dashboards (Individual/Business/Enterprise) with Framer Motion and Chart.js.",
+      "Integrated Stripe and PayStack payment processing for subscription management.",
+      "Delivered SEO-optimized Next.js landing pages with 90+ Lighthouse scores.",
+    ],
+  },
+  {
+    company: "Bilo Tech Ltd., Tema",
+    role: "Frontend Developer",
+    period: "Aug – Oct 2024",
+    description:
+      "Developed high-performance web frontend and React Native mobile app for a food-ordering platform.",
+    achievements: [
+      "Built Next.js frontend with SSR achieving 90+ Lighthouse performance score.",
+      "Integrated Hubtel payment gateway for secure in-app payments.",
+      "Connected REST APIs for authentication and real-time order updates via WebSockets.",
+    ],
+  },
 ];
 
 interface Projects {
@@ -86,7 +130,6 @@ interface Projects {
   };
   highlight: string;
 }
-[];
 export const mobileProjects: Projects[] = [
   {
     slug: "quick-scan",
@@ -128,7 +171,7 @@ export const mobileProjects: Projects[] = [
     techStack: ["React Native", "Expo", "Global State"],
     links: {
       preview: "/images/signease.jpg",
-      download: "https://drive.google.com/your-signease-apk-link",
+      // download: "ADD_YOUR_LINK_HERE",
     },
     highlight: "Education",
   },
@@ -141,7 +184,7 @@ export const mobileProjects: Projects[] = [
     gallery: ["/images/instuddy.png"],
     content:
       "## Overview\nInStuddy is designed to help students organize their study materials and manage their coursework effectively. It provides a centralized platform for accessing notes, assignments, and other educational resources.\n\n## Technical Details\nBuilt with Next.js for a blazing fast frontend and Laravel for a robust backend, connected to a MySQL database.",
-    techStack: ["React Native", ],
+    techStack: ["React Native", "Expo"],
     links: {
       demo: "https://www.instuddy.com/",
       // github: "https://github.com/adu-yeboah/invoicepay",
@@ -183,6 +226,21 @@ export const webProjects: Projects[] = [
       // github: "https://github.com/adu-yeboah/invoicepay",
     },
     highlight: "Education",
+  },
+  {
+    slug: "react-flash-message",
+    title: "React Flash Message",
+    description:
+      "An open-source, reusable React component library for elegant flash notifications with theming support.",
+    imageSrc: "/images/avatar.jpg",
+    gallery: [],
+    content:
+      "## Overview\nA reusable React component library published on npm with TypeScript support. Designed for developer experience, API ergonomics, and consistency across React applications.\n\n## Features\n- Theming support for custom branding\n- TypeScript-first with full type safety\n- Semantic versioning and documented API\n- Published and versioned on npm",
+    techStack: ["React", "TypeScript", "npm"],
+    links: {
+      github: "https://github.com/adu-yeboah",
+    },
+    highlight: "Open Source",
   },
   {
     slug: "invoice-pay",
@@ -264,7 +322,7 @@ export const webProjects: Projects[] = [
       "## Overview\nIstem Academy is an educational management platform. It facilitates communication between school administration, teachers, and students regarding activities and announcements.\n\n## Technical Details\nBuilt with the TALL stack (or similar Laravel + React/Inertia stack), providing a seamless SPA experience.",
     techStack: ["React.js", "Laravel", "Inertia.js"],
     links: {
-      demo: "https://www.isteamacademi.com//",
+      demo: "https://www.isteamacademi.com/",
       // github: 'https://github.com/adu-yeboah/chat',
     },
     highlight: "Real-time",
@@ -303,8 +361,8 @@ export const contactInfo = [
   },
   {
     type: "LinkedIn",
-    value: "Connect on LinkedIn",
-    href: "#", // Add real LinkedIn if known
+    value: "linkedin.com/in/adu-yeboah",
+    href: "https://linkedin.com/in/adu-yeboah",
     icon: Linkedin,
     color: "hover:text-blue-500",
   },

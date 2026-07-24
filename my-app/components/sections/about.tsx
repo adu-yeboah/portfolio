@@ -47,8 +47,8 @@ const About = () => {
             </h2>
 
             <p className="text-lg md:text-xl text-gray-400 leading-relaxed">
-              Based in Ghana, I specialize in building scalable applications. My approach
-              combines technical rigor with a deep understanding of user experience.
+              Full Stack Engineer based in Ghana with 3+ years shipping production mobile apps
+              to the App Store & Google Play, and building high-performance web apps with React, Next.js, and Laravel.
             </p>
 
             <div className="grid grid-cols-2 gap-8 pt-4">
@@ -113,7 +113,7 @@ const About = () => {
                     <br />
                     <span className="ml-4 text-purple-400">tech</span>: [<span className="text-yellow-200">&apos;React Native&apos;</span>, <span className="text-yellow-200">&apos;Laravel&apos;</span>, <span className="text-yellow-200">&apos;Next.js&apos;</span>],
                     <br />
-                    <span className="ml-4 text-purple-400">mission</span>: <span className="text-yellow-200">&apos;Building the future of tech in Africa&apos;</span>
+                    <span className="ml-4 text-purple-400">mission</span>: <span className="text-yellow-200">&apos;Shipping reliable software for real users&apos;</span>
                     <br />
                     {'}'};
                   </code>
