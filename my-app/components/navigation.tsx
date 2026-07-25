@@ -99,6 +99,17 @@ const Navigation = () => {
               </motion.a>
             ))}
             <motion.a
+              href="/resume.pdf"
+              download
+              className="ml-4 px-5 py-2.5 border-2 border-gray-800 text-gray-400 text-sm font-bold rounded-full hover:border-cyan-500 hover:bg-cyan-500/10 hover:text-white transition-all duration-300 flex items-center gap-2"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.25 }}
+            >
+              <Download size={14} />
+              Resume
+            </motion.a>
+            <motion.a
               href="#contact"
               onClick={(e) => handleNavClick(e, '#contact')}
               className="ml-4 px-6 py-2.5 bg-gradient-to-r from-cyan-500 to-blue-600 text-white text-sm font-bold rounded-full hover:from-cyan-400 hover:to-blue-500 transition-all duration-300 shadow-lg shadow-cyan-500/25 hover:shadow-cyan-500/50 hover:scale-105 active:scale-95"

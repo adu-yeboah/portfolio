@@ -58,7 +58,7 @@ const Hero = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
               >
-                Adu Yeboah Samuel — Shipping production mobile apps to the App Store &amp; Google Play, and building
+                Adu Yeboah Samuel — Shipping production mobile apps to the App Store &amp; Google Play,
                 and building scalable web applications with React, Next.js, and Laravel.
               </motion.p>
             </div>
@@ -78,7 +78,6 @@ const Hero = () => {
                 <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </a>
               <a
-              <a
                 href="/resume.pdf"
                 download
                 className="px-8 py-4 border-2 border-gray-800 rounded-full font-bold hover:border-cyan-500 hover:bg-cyan-500/10 transition-all duration-300 text-gray-400 hover:text-white group"
@@ -88,6 +87,7 @@ const Hero = () => {
                   Resume
                 </span>
               </a>
+              <a
                 href="#contact"
                 className="px-8 py-4 border-2 border-gray-800 rounded-full font-bold hover:border-cyan-500 hover:bg-cyan-500/10 transition-all duration-300 text-gray-400 hover:text-white group"
               >
