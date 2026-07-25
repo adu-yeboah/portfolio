@@ -6,8 +6,6 @@ import {
   Github,
   Mail,
   Linkedin,
-
-
   CloudUpload,
 } from "lucide-react";
 
@@ -66,8 +64,10 @@ export const skills = [
       "Stripe",
       "PayStack",
       "Google OAuth",
-      "JWT Auth",
-      "Sentry",
+      "AWS",
+      "AZURE",
+      "railway",
+      "namecheap",
     ],
     color: "text-purple-400",
   },
@@ -232,13 +232,13 @@ export const webProjects: Projects[] = [
     title: "React Flash Message",
     description:
       "An open-source, reusable React component library for elegant flash notifications with theming support.",
-    imageSrc: "/images/avatar.jpg",
+    imageSrc: "/images/flashmessage.png",
     gallery: [],
     content:
       "## Overview\nA reusable React component library published on npm with TypeScript support. Designed for developer experience, API ergonomics, and consistency across React applications.\n\n## Features\n- Theming support for custom branding\n- TypeScript-first with full type safety\n- Semantic versioning and documented API\n- Published and versioned on npm",
     techStack: ["React", "TypeScript", "npm"],
     links: {
-      github: "https://github.com/adu-yeboah",
+      github: "https://github.com/adu-yeboah/flash-message",
     },
     highlight: "Open Source",
   },

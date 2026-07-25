@@ -17,7 +17,7 @@ const ContactItem = ({ type, value, href, icon: Icon, color }: ContactItemProps)
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="group relative flex items-center gap-6 p-6 rounded-2xl bg-gradient-to-br from-gray-900/50 to-gray-900/20 border border-gray-800/50 transition-all duration-500 hover:border-cyan-500/50 overflow-hidden"
+      className="group relative flex justify-between w-full items-center gap-6 p-6 rounded-2xl bg-gradient-to-br from-gray-900/50 to-gray-900/20 border border-gray-800/50 transition-all duration-500 hover:border-cyan-500/50 overflow-hidden"
       initial={{ opacity: 0, x: -20 }}
       whileInView={{ opacity: 1, x: 0 }}
       viewport={{ once: true }}
@@ -27,7 +27,7 @@ const ContactItem = ({ type, value, href, icon: Icon, color }: ContactItemProps)
       {/* Glow effect on hover */}
       <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 to-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-      <div className="relative z-10 flex items-center gap-6">
+      <div className="relative z-10 justify-between w-full flex items-center gap-6">
         {/* Icon container */}
         <motion.div
           className="p-4 bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl group-hover:from-cyan-500 group-hover:to-blue-600 transition-all duration-300 shadow-lg group-hover:shadow-cyan-500/25"
