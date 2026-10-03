@@ -1,7 +1,5 @@
-import Particles from '@/components/particles';
 import Navigation from '@/components/navigation';
 import BackToTop from '@/components/backToTop';
-import ScrollProgress from '@/components/scrollProgress';
 import Hero from '@/components/sections/hero';
 import About from '@/components/sections/about';
 import Skills from '@/components/sections/skills';
@@ -12,9 +10,7 @@ import Footer from '@/components/sections/footer';
 
 export default function Home() {
   return (
-    <main className="bg-black text-white selection:bg-cyan-500/30 selection:text-cyan-400 overflow-x-hidden">
-      <Particles />
-      <ScrollProgress />
+    <main className="bg-neutral-950 text-neutral-100 overflow-x-hidden">
       <Navigation />
       <BackToTop />
 

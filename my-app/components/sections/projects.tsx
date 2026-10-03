@@ -1,51 +1,34 @@
-"use client";
-
-import { motion } from "framer-motion";
 import { mobileProjects, webProjects } from "@/lib/data";
 import ProjectCard from "@/components/projectCard";
+import SectionHeader from "@/components/sectionHeader";
 
 const Projects = () => {
   return (
-    <section id="projects" className="py-32">
+    <section id="projects" className="py-24">
       <div className="container mx-auto px-6">
-        <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
-          <div className="space-y-4">
-            <h2 className="text-4xl md:text-6xl font-bold italic tracking-tighter">
-              FEATURED WORK
-            </h2>
-            <p className="text-gray-500 max-w-md">
-              Selected projects that demonstrate my technical expertise.
-            </p>
-          </div>
-        </div>
+        <SectionHeader
+          kicker="Projects"
+          title="Featured Work"
+          description="Selected projects that demonstrate my technical expertise."
+        />
 
-        <div className="space-y-32">
-          {/* Web Apps */}
-          <div className="space-y-12">
-            <div className="flex items-center gap-4">
-              <div className="h-[1px] flex-1 bg-gray-800" />
-              <span className="text-sm font-bold text-blue-400 uppercase tracking-[0.2em]">
-                Web Solutions
-              </span>
-              <div className="h-[1px] w-12 bg-gray-800" />
-            </div>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="space-y-16">
+          <div>
+            <h3 className="text-sm font-medium uppercase tracking-widest text-neutral-500 mb-6">
+              Web Solutions
+            </h3>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {webProjects.map((project) => (
                 <ProjectCard key={project.title} {...project} />
               ))}
             </div>
           </div>
 
-          {/* Mobile Apps */}
-          <div className="space-y-12">
-            <div className="flex items-center gap-4">
-              <div className="h-[1px] flex-1 bg-gray-800" />
-              <span className="text-sm font-bold text-cyan-400 uppercase tracking-[0.2em]">
-                Mobile Applications
-              </span>
-              <div className="h-[1px] w-12 bg-gray-800" />
-            </div>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div>
+            <h3 className="text-sm font-medium uppercase tracking-widest text-neutral-500 mb-6">
+              Mobile Applications
+            </h3>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {mobileProjects.map((project) => (
                 <ProjectCard key={project.title} {...project} />
               ))}

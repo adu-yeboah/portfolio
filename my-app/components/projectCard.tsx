@@ -1,9 +1,9 @@
 "use client";
 
-import { ExternalLink, Github, Download, ArrowUpRight, FileText } from 'lucide-react';
+import { ExternalLink, Github, Download, FileText } from 'lucide-react';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
 import Link from 'next/link';
+import Reveal from '@/components/reveal';
 
 interface ProjectCardProps {
   slug?: string;
@@ -20,147 +20,97 @@ interface ProjectCardProps {
   highlight?: string;
 }
 
+const linkClass =
+  'inline-flex items-center gap-1.5 text-sm text-neutral-400 hover:text-blue-400 transition-colors';
+
 const ProjectCard = ({ slug, title, description, imageSrc, techStack, links, highlight }: ProjectCardProps) => {
   return (
-    <motion.div
-      className="group relative bg-gradient-to-br from-gray-900/50 to-gray-900/20 border border-gray-800/50 rounded-3xl overflow-hidden hover:border-cyan-500/50 transition-all duration-500 flex flex-col"
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      whileHover={{ y: -8 }}
-      transition={{ type: "spring", stiffness: 300, damping: 20 }}
-    >
-      {/* Image Section */}
-      <div className="relative w-full aspect-video overflow-hidden bg-gray-950/50">
-        <Image
-          src={imageSrc}
-          alt={`${title} Preview`}
-          fill
-          className="object-contain transition-transform duration-700 group-hover:scale-105"
-        />
-        {/* Gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40 to-transparent opacity-80" />
+    <Reveal className="h-full">
+      <article className="group h-full flex flex-col border border-neutral-800 rounded-xl overflow-hidden bg-neutral-900/40 hover:border-neutral-600 transition-colors">
+        <div className="relative w-full aspect-video bg-neutral-900">
+          <Image
+            src={imageSrc}
+            alt={`${title} Preview`}
+            fill
+            className="object-contain p-4"
+          />
+        </div>
 
-        {highlight && (
-          <motion.div
-            className="absolute top-4 left-4 px-3 py-1.5 bg-gradient-to-r from-cyan-500 to-blue-600 text-white text-[10px] font-bold uppercase tracking-wider rounded-full shadow-lg"
-            initial={{ opacity: 0, scale: 0 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-          >
-            {highlight}
-          </motion.div>
-        )}
+        <div className="p-6 flex flex-col flex-1">
+          <div className="flex items-start justify-between gap-3 mb-2">
+            {slug ? (
+              <Link href={`/projects/${slug}`} className="hover:text-blue-400 transition-colors">
+                <h3 className="text-lg font-semibold">{title}</h3>
+              </Link>
+            ) : (
+              <h3 className="text-lg font-semibold">{title}</h3>
+            )}
+            {highlight && (
+              <span className="shrink-0 text-[11px] font-medium uppercase tracking-wider text-blue-400 border border-blue-500/30 rounded px-2 py-0.5">
+                {highlight}
+              </span>
+            )}
+          </div>
 
-        {/* Hover overlay with links */}
-        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 bg-black/60 backdrop-blur-sm z-20">
-          <motion.div
-            className="flex gap-4"
-            initial={{ scale: 0.8, opacity: 0 }}
-            whileInView={{ scale: 1, opacity: 1 }}
-            transition={{ delay: 0.1 }}
-          >
+          <p className="text-sm text-neutral-400 leading-relaxed mb-5 line-clamp-2 flex-1">
+            {description}
+          </p>
+
+          <div className="flex flex-wrap gap-2 mb-5">
+            {techStack.map((tech) => (
+              <span
+                key={tech}
+                className="text-[11px] px-2 py-1 text-neutral-400 bg-neutral-900 border border-neutral-800 rounded"
+              >
+                {tech}
+              </span>
+            ))}
+          </div>
+
+          <div className="flex flex-wrap items-center gap-x-5 gap-y-2 pt-4 border-t border-neutral-800">
             {slug && (
-              <Link href={`/projects/${slug}`}>
-                <motion.div
-                  className="p-4 bg-cyan-500 text-white rounded-full hover:bg-cyan-400 transition-colors shadow-lg"
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.95 }}
-                  aria-label="View Project Details"
-                >
-                  <FileText size={20} />
-                </motion.div>
+              <Link href={`/projects/${slug}`} className={linkClass}>
+                <FileText size={15} />
+                Details
               </Link>
             )}
             {links.github && (
-              <motion.a
+              <a
                 href={links.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-4 bg-white text-black rounded-full hover:bg-gray-200 transition-colors shadow-lg"
-                whileHover={{ scale: 1.1, rotate: 5 }}
-                whileTap={{ scale: 0.95 }}
-                aria-label="View GitHub repository"
+                className={linkClass}
               >
-                <Github size={20} />
-              </motion.a>
+                <Github size={15} />
+                GitHub
+              </a>
             )}
             {(links.demo || links.preview) && (
-              <motion.a
+              <a
                 href={links.demo || links.preview}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-4 bg-white text-black rounded-full hover:bg-gray-200 transition-colors shadow-lg"
-                whileHover={{ scale: 1.1, rotate: -5 }}
-                whileTap={{ scale: 0.95 }}
-                aria-label="View live demo"
+                className={linkClass}
               >
-                <ExternalLink size={20} />
-              </motion.a>
+                <ExternalLink size={15} />
+                Live Demo
+              </a>
             )}
             {links.download && (
-              <motion.a
+              <a
                 href={links.download}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-4 bg-white text-black rounded-full hover:bg-gray-200 transition-colors shadow-lg"
-                whileHover={{ scale: 1.1, rotate: 5 }}
-                whileTap={{ scale: 0.95 }}
-                aria-label="Download app"
+                className={linkClass}
               >
-                <Download size={20} />
-              </motion.a>
+                <Download size={15} />
+                Download
+              </a>
             )}
-          </motion.div>
+          </div>
         </div>
-      </div>
-
-      {/* Content Section */}
-      <div className="p-6 relative z-10 flex flex-col flex-1">
-        <div className="flex justify-between items-start mb-4">
-          {slug ? (
-            <Link href={`/projects/${slug}`} className="hover:text-cyan-400 transition-colors">
-              <h3 className="text-xl font-bold text-white transition-colors">{title}</h3>
-            </Link>
-          ) : (
-            <h3 className="text-xl font-bold text-white">{title}</h3>
-          )}
-          {slug && (
-            <Link href={`/projects/${slug}`}>
-              <motion.div
-                className="p-2 bg-gray-800/50 rounded-lg hover:bg-cyan-500/20 transition-colors cursor-pointer"
-                whileHover={{ rotate: 45, scale: 1.1 }}
-                transition={{ type: "spring", stiffness: 300 }}
-              >
-                <ArrowUpRight className="text-gray-500 hover:text-cyan-400 transition-colors" size={18} />
-              </motion.div>
-            </Link>
-          )}
-        </div>
-
-        <p className="text-gray-400 text-sm mb-6 line-clamp-2 leading-relaxed flex-1">{description}</p>
-
-        <div className="flex flex-wrap gap-2 mt-auto">
-          {techStack.map((tech, index) => (
-            <motion.span
-              key={tech}
-              className="text-[11px] font-medium px-3 py-1.5 bg-gray-900/80 text-gray-400 border border-gray-800 rounded-lg group-hover:border-cyan-500/30 group-hover:text-cyan-400 transition-all duration-300"
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.05 }}
-              whileHover={{ scale: 1.05 }}
-            >
-              {tech}
-            </motion.span>
-          ))}
-        </div>
-      </div>
-
-      {/* Glow effect on hover */}
-      <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 to-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-    </motion.div>
+      </article>
+    </Reveal>
   );
 };
 

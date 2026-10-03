@@ -2,47 +2,29 @@
 
 import { useState, useEffect } from 'react';
 import { ChevronUp } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
 
 const BackToTop = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     const toggleVisibility = () => {
-      if (window.scrollY > 500) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
-      }
+      setIsVisible(window.scrollY > 500);
     };
 
     window.addEventListener('scroll', toggleVisibility);
     return () => window.removeEventListener('scroll', toggleVisibility);
   }, []);
 
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
-  };
-
   return (
-    <AnimatePresence>
-      {isVisible && (
-        <motion.button
-          onClick={scrollToTop}
-          className="fixed bottom-8 right-8 z-50 p-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded-full shadow-lg shadow-cyan-500/30 hover:shadow-cyan-500/50 hover:scale-110 active:scale-95 transition-all duration-300 group"
-          initial={{ opacity: 0, scale: 0, y: 20 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          exit={{ opacity: 0, scale: 0, y: 20 }}
-          whileHover={{ y: -5 }}
-          aria-label="Back to top"
-        >
-          <ChevronUp size={24} className="group-hover:-translate-y-0.5 transition-transform" />
-        </motion.button>
-      )}
-    </AnimatePresence>
+    <button
+      onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+      aria-label="Back to top"
+      className={`fixed bottom-8 right-8 z-50 p-3 bg-neutral-950/90 backdrop-blur border border-neutral-800 text-neutral-300 rounded-lg hover:text-blue-400 hover:border-blue-500 transition-all duration-300 ${
+        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none'
+      }`}
+    >
+      <ChevronUp size={20} />
+    </button>
   );
 };
 
